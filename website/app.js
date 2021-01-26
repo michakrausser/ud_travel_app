@@ -1,7 +1,9 @@
 /* Global Variables */
 
-let baseURL = 'http://api.openweathermap.org/data/2.5/weather?zip='
-const apiKey = '&appid=18f4bd3e4bb4ccb550b483c6cf16eb31';
+let baseURL = 'http://api.openweathermap.org/data/2.5/weather?zip=';
+
+// Personal API Key for OenWeatherMap API
+const apiKey = '&appid=18f4bd3e4bb4ccb550b483c6cf16eb31&units=imperial';
 
 // Create a new date instance dynamically with JS
 let d = new Date();
@@ -86,7 +88,7 @@ const updateUI = async ( city, zip ) =>{
     // update UI
     document.getElementById( 'location' ).innerHTML = `Weather data in ${ city }, ${ zip }`;
     document.getElementById( 'date' ).innerHTML = `Date: ${ allData.date }`;
-    document.getElementById( 'temp' ).innerHTML = `Temperature: ${ allData.temperature } °F`;
+    document.getElementById( 'temp' ).innerHTML = `Temperature: ${ allData.temperature } °`;
     document.getElementById( 'content' ).innerHTML = `Your feelings:  ${ allData.userResponse }`;
   }
   catch(error) {
