@@ -1,19 +1,28 @@
-const path = require('path')
-const webpack = require('webpack')
+const path = require("path")
+const webpack = require("webpack")
 const HtmlWebPackPlugin = require("html-webpack-plugin")
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
-const TerserPlugin = require('terser-webpack-plugin')
-
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
+// const WorkboxPlugin = require('workbox-webpack-plugin');
+// //Define dotenv
+// const dotenv = require('dotenv');
+// const config = dotenv.config().parsed;
+// console.log(config)
 module.exports = {
   entry: './src/client/index.js',
-  output: {
-    libraryTarget: 'var',
-    library: 'Client'
-  },
   mode: 'production',
   optimization: {
-    minimizer: [new TerserPlugin({}), new CssMinimizerPlugin({})],
+    minimize: true,
+    minimizer: [
+      new TerserPlugin(),
+      new CssMinimizerPlugin(),
+    ],
+  },
+  output: {
+    libraryTarget: 'var',
+    library: 'Client',
+    publicPath: ""
   },
   module: {
     rules: [
@@ -29,6 +38,10 @@ module.exports = {
       {
         test: /\.html$/i,
         loader: 'html-loader',
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        type: 'asset/resource'
       }
     ]
   },
@@ -37,6 +50,7 @@ module.exports = {
       template: "./src/client/views/index.html",
       filename: "./index.html",
     }),
-    new MiniCssExtractPlugin({filename: '[name].css'}),
-  ]
+    new MiniCssExtractPlugin({ filename: "[name].css" }),
+    // new WorkboxPlugin.GenerateSW(),
+  ],
 }

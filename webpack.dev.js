@@ -7,11 +7,18 @@ module.exports = {
   entry: './src/client/index.js',
   output: {
     libraryTarget: 'var',
-    library: 'Client'
+    library: 'Client',
+    filename: 'utils.min.js',
+    path: path.resolve(__dirname, 'dist')
   },
   mode: 'development',
   devtool: 'source-map',
   stats: 'verbose',
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+    compress: true,
+    port: 8888,
+  },
   module: {
     rules: [
       {
@@ -27,6 +34,10 @@ module.exports = {
         test: /\.html$/i,
         loader: 'html-loader',
       },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        type: 'asset/resource'
+      }
     ]
   },
   plugins: [

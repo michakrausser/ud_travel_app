@@ -1,11 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <title>Weather Journal</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Oswald:400,600,700|Ranga:400,700&display=swap" rel="stylesheet">
 </head>
+
 <body>
-  <h1>Hallo</h1>
-  <h1>Hallo</h1>
+  <div id="app" class="container">
+
+    <div class="headline-wrapper row">
+
+      <h1 class="headline col-12 text-center">Weather Journal App</h1>
+
+    </div>
+
+    <div class="row inputs">
+
+      <div class="zip col-12 text-center">
+
+        <label for="zip">Enter Zipcode here</label>
+        <input type="text" id="zip" placeholder="enter zip code here">
+
+      </div>
+
+      <div class="feel col-12 text-center">
+
+        <label for="feelings">How are you feeling today?</label>
+        <textarea class="myInput" id="feelings" placeholder="Enter your feelings here" rows="9" cols="50"></textarea>
+
+      </div>
+
+      <div class="button col-12 text-center">
+
+        <button id="generate" type = "submit"> Generate </button>
+
+      </div>
+
+    </div>
+
+    <div class="entry row">
+
+      <div class="title">Most Recent Entry</div>
+      <div id="entryWeatherData">
+
+        <div id="location"></div>
+        <div id = "date"></div>
+        <div id = "temp"></div>
+        <div id = "content"></div>
+
+      </div>
+
+    </div>
+
+  </div>
+
 </body>
+
 </html>
