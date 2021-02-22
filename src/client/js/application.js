@@ -13,18 +13,29 @@ let today = d.getDate() + '. ' + months[ d.getMonth() ] + ' ' + d.getFullYear();
 
 document.getElementById( 'generate' ).addEventListener( 'click', performAction );
 
-function performAction( e ) {
+async function performAction( e ) {
 
   e.preventDefault()
 
   // Get ZIP
-  const zip =  document.getElementById( 'zip' ).value;
+  const location =  document.getElementById( 'zip' ).value;
 
   // Get user response
   const userResponse =  document.getElementById( 'feelings' ).value;
 
-  // API Call => POST Data to server => update UI
-  getWeatherData( baseURL, zip, apiKey )
+  // API Call
+  if ( location ) {
+    fetch( baseUrl + location + username )
+      .then( result => result.json() )
+      .then( result => {
+        console.log( result );
+      })
+  } else {
+    alert( 'write please a location');
+  }
+
+
+  /*getWeatherData( baseUrl, location, username )
     .then( data => {
       console.log( 'data_from_API: ', data );
 
@@ -35,12 +46,14 @@ function performAction( e ) {
       });
 
       updateUI( data.name, zip, );
-    })
+    })*/
 }
 
 // API call, get data
 
 const getWeatherData = async ( baseURL, zip, key ) => {
+
+  console.log( 'url: ', baseURL, zip, key);
 
   const res = await fetch( baseURL + zip + key )
 
