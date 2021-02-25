@@ -1,4 +1,5 @@
-import { performAction } from './js/application'
+import { performAction } from './js/app'
+import 'bootstrap';
 
 import './styles/styles.sass'
 

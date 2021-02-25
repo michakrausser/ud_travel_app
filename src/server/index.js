@@ -1,9 +1,5 @@
 const path = require('path')
 const express = require('express')
-const dotenv = require('dotenv');
-dotenv.config();
-
-console.log(`Your API key is ${ process.env.API_KEY }`);
 
 const app = express()
 
