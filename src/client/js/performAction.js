@@ -1,4 +1,4 @@
-import { dateControl } from "./app";
+import { dateControl, journeys } from "./app";
 import { daysLeft } from "./daysLeft";
 
 
@@ -45,6 +45,16 @@ async function performAction( e ) {
             .then( resultWeatherbit => {
 
               // set or update ui
+
+              postData( '/addTrip', {
+                location: resultGeonames.geonames[0].name,
+                country: resultGeonames.geonames[0].countryName,
+                date: resultWeatherbit.data[ daysLeft( dateControl.value )].datetime,
+                daysLeft: daysLeft( dateControl.value ),
+                temperature: resultWeatherbit.data[ daysLeft( dateControl.value )].temp,
+                weatherDescription: resultWeatherbit.data[ daysLeft( dateControl.value )].weather.description
+              });
+
               document.getElementById( 'destination' ).innerHTML = `Destination: ${ resultGeonames.geonames[0].name },  ${ resultGeonames.geonames[0].countryName }`;
               document.getElementById( 'date' ).innerHTML = `Date: ${ resultWeatherbit.data[ daysLeft( dateControl.value )].datetime }`;
               document.getElementById( 'daysLeft' ).innerHTML = `Days left: ${ daysLeft( dateControl.value )}`;
@@ -106,6 +116,29 @@ function createImage( result ) {
   document.querySelector( '.locationImageWrapper' ).appendChild( img );
 
 }
+
+//Post method
+
+const postData = async ( url = '', data = {} ) => {
+
+  const response = await fetch( url, {
+    method: 'POST',
+    credentials: 'same-origin',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify( data ),
+  });
+
+  try {
+    const newData = await response.json();
+    console.log( newData );
+    return newData;
+
+  } catch( error ) {
+    console.log( "error", error );
+  }
+};
 
 export {
   add15days,

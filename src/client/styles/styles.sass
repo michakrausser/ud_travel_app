@@ -5,6 +5,8 @@ $primary-color: #FF7034
 $font-color: #fff
 $input-background: #22b2da
 $border-radius: 5px
+$button-hover-color: #424242
+$input-hover-color: #33AAFF
 
 body
   background-color: $background-color
@@ -25,6 +27,9 @@ body
     border: none
     border-radius: $border-radius
     box-shadow: 2px 4px 5px #444
+
+    &:hover
+      background-color: $button-hover-color
 
 .row
   padding: 50px
@@ -53,6 +58,9 @@ h1
     margin: 0 auto
     padding: 10px
     border-radius: $border-radius
+
+    &:hover
+      background-color: $input-hover-color
 
   .buttonWrapper
     margin-top: 50px

@@ -1,5 +1,7 @@
 import { performAction, add15days, newTrip} from "./performAction";
 
+let journeys = {}
+
 // Create a new date instance dynamically with JS
 let d = new Date();
 let today = d.getFullYear() + '-' + ( "0" + ( d.getMonth() + 1 )).slice( -2 ) + '-' + d.getDate();
@@ -15,5 +17,7 @@ document.querySelector( '.newBtn' ).addEventListener( 'click', newTrip );
 
 export {
   dateControl,
-  d
+  d,
+  journeys,
+  hovered
 }
