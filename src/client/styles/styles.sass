@@ -1,93 +1,98 @@
 @import "../../../node_modules/bootstrap/scss/bootstrap.scss"
 
+$background-color: #727272
+$primary-color: #FF7034
+$font-color: #fff
+$input-background: #22b2da
+$border-radius: 5px
+
 body
-  background: url('../img/background.jpg') no-repeat
-  background-size: cover
+  background-color: $background-color
   font-family: -apple-system, BlinkMacSystemFont, sans-serif
+  color: $font-color
   margin: 0
   padding: 0
+  font-size: 20px
 
 
 #app
   height: 100vh
-  color: #f0d43a
-  font-size: 20px
+
+  button
+    background: $background-color
+    color: $font-color
+    font-size: 20px
+    border: none
+    border-radius: $border-radius
+    box-shadow: 2px 4px 5px #444
 
 .row
   padding: 50px
 
-
-.inputs > div
-  margin: 15px 0
-
-
-.zip
-  text-align: center
-
-#locationImage
-  background-size: contain
-  background-repeat: no-repeat
-  width: 100%
-  height: 0
-  padding-top: 100%
-
-
-.entry
-  background: rgba(59, 74, 107, .4)
-  min-height: 150px
-  padding: 20px
-  flex-direction: column
-
-
-#entryWeatherData
-  margin: 20px auto
-
-
-#date
-
-
-
-#temp
-
-
-
-#content
-
-
-
-/*  Basic Styling To Override Default For Basic HTML Elements */
-label
-  display: block
-  font-size: 27px
-
-
-input
-  display: block
-  height: 60px
-  width: 400px
-  background: #22b2da
-  color: #f0d43a
-  font-size: 20px
-  border: none
-  margin: 0 auto
-  padding: 10px
-
-button
-  padding: 20px 30px
-  margin-top: 50px
-  background: #3b4a6b
-  color: #f0d43a
-  font-size: 26px
-  border: none
-  box-shadow: 2px 4px 5px #444
-
-
 h1
   font-size: 36px
 
+.inputs
+  background-color: $primary-color
 
-.entry .title
-  margin: 0 auto
+  > div
+    margin-top: 20px
+
+  label
+    display: block
+    font-size: 27px
+
+  input
+    display: block
+    height: 60px
+    width: 100%
+    background-color: $input-background
+    color: $font-color
+    font-size: 20px
+    border: none
+    margin: 0 auto
+    padding: 10px
+    border-radius: $border-radius
+
+  .buttonWrapper
+    margin-top: 50px
+
+    button
+      padding: 20px 30px
+      font-size: 26px
+
+.results
+  padding: 30px 0
+  display: none
+  background-color: $primary-color
+
+  .locationImageWrapper
+
+    img
+      width: 100%
+
+  .tripWrapper
+    margin: 30px
+
+    .title
+      font-weight: bold
+      font-size: 25px
+
+    .tripInformation
+      margin-top: 20px
+
+  .buttons
+    display: flex
+
+    button
+      margin-left: 30px
+      padding: 10px 20px
+      min-width: 140px
+      background: $background-color
+      color: $font-color
+      font-size: 26px
+      border: none
+      box-shadow: 2px 4px 5px #444
 
 /* Reset style for HTML element on active to have no border*/
 input:focus,
@@ -96,3 +101,21 @@ textarea:focus,
 button:focus
   outline: none
 
+@media ( min-width: 576px )
+
+  .inputs, .results
+    border-radius: $border-radius
+
+@media ( min-width: 992px )
+
+  .results
+
+    .tripWrapper
+      margin: 0
+
+    .buttons
+      margin-top: 30px
+
+      button
+        margin-left: 0
+        margin-right: 30px

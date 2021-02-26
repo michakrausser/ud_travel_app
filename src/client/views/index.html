@@ -10,7 +10,7 @@
   <body>
     <div id="app" class="container">
 
-      <div class="headline-wrapper row">
+      <div class="row headline-wrapper">
 
         <h1 class="headline col-12 text-center">Travel App</h1>
 
@@ -18,14 +18,14 @@
 
       <div class="row inputs">
 
-        <div class="zip col-12 text-center">
+        <div class="destination col-12 col-lg-6 text-center">
 
           <label for="location">Destination</label>
           <input type="text" id="location" placeholder="Enter location here">
 
         </div>
 
-        <div class="feel col-12 text-center">
+        <div class="startDate col-12 col-lg-6 text-center">
 
           <label for="start">Start date:</label>
           <input type="date" id="start" name="trip-start">
@@ -33,7 +33,7 @@
 
         </div>
 
-        <div class="button col-12 text-center">
+        <div class="buttonWrapper col-12 text-center">
 
           <button id="generate" type="submit">Generate</button>
 
@@ -41,23 +41,33 @@
 
       </div>
 
-      <div class="locationImageWrapper">
-        <div id="locationImage"/>
-      </div>
+      <div class="row results">
 
-      <div class="entry row">
+        <div class="locationImageWrapper col-lg-6"></div>
 
-        <div class="title">Most Recent Entry</div>
-        <div id="entryWeatherData">
+        <div class="tripWrapper col-12 col-lg-6">
 
-          <div id="place"></div>
-          <div id="country"></div>
-          <div id="lat"></div>
-          <div id="lng"></div>
+          <div class="title">Trip information:</div>
+          <div class="tripInformation">
+
+            <div id="destination"></div>
+            <div id="date"></div>
+            <div id="daysLeft"></div>
+            <div id="temp"></div>
+            <div id="description"></div>
+
+          </div>
+
+        </div>
+
+        <div class="buttons col-12">
+
+          <button class="newBtn">new trip</button>
 
         </div>
 
       </div>
+
 
     </div>
 
