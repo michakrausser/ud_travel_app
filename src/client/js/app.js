@@ -19,5 +19,4 @@ export {
   dateControl,
   d,
   journeys,
-  hovered
 }
