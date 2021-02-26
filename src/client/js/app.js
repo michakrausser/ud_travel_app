@@ -25,12 +25,10 @@ dateControl.max = add15days();
 
 document.querySelector( '#generate' ).addEventListener( 'click', performAction );
 document.querySelector( '.newBtn' ).addEventListener( 'click', newTrip );
-document.querySelector( '.saveBtn' ).addEventListener( 'click', saveTrip );
 
 async function performAction( e ) {
 
   e.preventDefault()
-  console.log( e );
 
   // Get ZIP
   let location = document.getElementById( 'location' ).value;
@@ -143,9 +141,13 @@ function newTrip() {
 
 function createImage( result ) {
 
-  console.log( result.hits[ 0 ] );
   let img = document.createElement('img');
   img.src = result.hits[0].largeImageURL;
   document.querySelector( '.locationImageWrapper' ).appendChild( img );
 
+}
+
+export {
+  performAction,
+  newTrip
 }
