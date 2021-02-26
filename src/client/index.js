@@ -1,9 +1,8 @@
-import { performAction, newTrip } from './js/app'
+import * as app from './js/app'
 import 'bootstrap';
 
 import './styles/styles.sass'
 
 export {
-  performAction,
-  newTrip
+  app
 }
